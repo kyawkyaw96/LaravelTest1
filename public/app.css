@@ -1,0 +1,11 @@
+body {
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    padding: auto;
+    margin: 0 100px 0;
+    justify-content: center;
+}
+h1 {
+    color: blueviolet;
+}

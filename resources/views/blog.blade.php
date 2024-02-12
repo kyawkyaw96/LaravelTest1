@@ -4,7 +4,8 @@
 		<h1>
 			{{ $blog->title }}
 		</h1>
-		<p>Created at- {{ $blog->date }}</h4>
+		<p style="color: red">slug = {{ $blog->slug }}</p>
+		<p>Created at- {{ $blog->created_at->diffForHumans() }}</h4>
 		<p>{{ $blog->body }}</p>
 		<h4><a href="/">Go Back</a></h4>
 	</article>

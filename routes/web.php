@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,16 +17,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('blogs', [
-        "blogs" => Blog::all(),
+        "blogs" => Blog::with('category')->get(), //lazy loading //eager load
     ]);
 });
-Route::get("/blogs/{blog}", function ($slug) {
-
-    $blog = Blog::find($slug);
-    if (!$blog) {
-        abort(404);
-    }
+Route::get("/blogs/{blog:slug}", function (Blog $blog) {
     return view('blog', [
         'blog' => $blog
     ]);
-})->where('blog', '[A-z1-9]+');///whereAlpha,whereAlphaNumeric  p
+})->where('blog', '[A-z\d\-_]+'); ///whereAlpha,whereAlphaNumeric  p
+
+Route::get("/categories/{category:slug}", function (Category $category) {
+    return view('blogs', [
+        "blogs" => $category->blogs,
+    ]);
+});

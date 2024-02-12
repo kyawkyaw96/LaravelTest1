@@ -8,6 +8,10 @@
 					{{ $blog->title }}
 				</a>
 			</h1>
+			<p>
+				<a href="categories/{{ $blog->category->slug }}">{{ $blog->category->name }}</a>
+			</p>
+			{{-- <p>Slug= {{ $blog->slug }}</p> --}}
 			{{ $blog->intro }}
 		</div>
 	@endforeach

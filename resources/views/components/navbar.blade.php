@@ -1,13 +1,11 @@
-<nav>
-	<ul>
-		<a href="">
-			<li>Home</li>
-		</a>
-		<a href="">
-			<li>About</li>
-		</a>
-		<a href="">
-			<li>Service</li>
-		</a>
-	</ul>
+<!-- navbar -->
+<nav class="navbar navbar-dark bg-dark">
+	<div class="container">
+		<a class="navbar-brand" href="/">Creative Coder</a>
+		<div class="d-flex">
+			<a href="/" class="nav-link">Home</a>
+			<a href="/#blogs" class="nav-link">Blogs</a>
+			<a href="#subscribe" class="nav-link">Subscribe</a>
+		</div>
+	</div>
 </nav>

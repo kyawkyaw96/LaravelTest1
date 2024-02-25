@@ -6,11 +6,11 @@
 		<div class="card-body">
 			<h3 class="card-title">{{ $blog->title }}</h3>
 			<h5 class="fs-6">
-				Author - <a href="/users/{{ $blog->user->username }}">{{ $blog->user->name }}</a>
+				Author - <a href="/?username={{ $blog->user->username }}">{{ $blog->user->name }}</a>
 			</h5>
 			<span class="table-responsive">{{ $blog->created_at->diffForHumans() }}</span>
 			<div class="tags my-3">
-				<a href="/categories/{{ $blog->category->slug }}" class="badge bg-primary">{{ $blog->category->name }}</a>
+				<a href="/?category={{ $blog->category->slug }}" class="badge bg-primary">{{ $blog->category->name }}</a>
 				{{-- <span class="badge bg-secondary">Css</span>
 				<span class="badge bg-success">Php</span>
 				<span class="badge bg-danger">Javascript</span>

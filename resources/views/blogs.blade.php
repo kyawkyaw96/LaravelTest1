@@ -23,7 +23,7 @@
 	<!-- hero section -->
 	<x-hero />
 	<!-- blogs section -->
-	<x-section :blogs="$blogs" :categories="$categories" :currentCategory="$currentCategory ?? null" />
+	<x-section :blogs="$blogs" />
 	<!-- subscribe new blogs -->
 	<x-subscribe />
 

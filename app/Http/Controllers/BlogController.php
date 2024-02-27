@@ -42,14 +42,14 @@ class BlogController extends Controller
             });
         });
 
-        return view('blogs', [
+        return view('blogs.index', [
             // "blog"=>Blog::all(), //no need eager load //blog model ma par p thar
             "blogs" => $query->paginate(6)->withQueryString(), //lazy loading //eager load
         ]);
     }
     public function show(Blog $blog)
     {
-        return view('blog', [
+        return view('blogs.show', [
             'blog' => $blog,
             'randomBlog' => Blog::inRandomOrder()->take(3)->get(),
         ]);

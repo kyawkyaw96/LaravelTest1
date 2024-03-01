@@ -22,6 +22,7 @@ Route::get('/', [BlogController::class, 'index']);
 Route::get("/blogs/{blog:slug}", [BlogController::class, 'show'])->where('blog', '[A-z\d\-_]+'); ///whereAlpha,whereAlphaNumeric  p
 Route::get('/register', [AuthController::class, 'create']);
 Route::post('/register', [AuthController::class, 'store']);
+Route::post('/logout', [AuthController::class, 'logout']);
 
 // Route::get("/users/{user:username}", function (User $user) {
 //     return view('blogs', [

@@ -20,7 +20,11 @@
 </x-layout> --}}
 
 <x-layout>
-	<!-- hero section -->
+
+	{{-- session flesh message --}}
+	@if (session('success'))
+		<div class="alert alert-success text-center">{{ session('success') }}</div>
+	@endif <!-- hero section -->
 	<x-hero />
 	<!-- blogs section -->
 	<x-section :blogs="$blogs" />

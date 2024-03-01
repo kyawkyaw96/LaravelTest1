@@ -21,12 +21,19 @@ class AuthController extends Controller
             'password' => ['required', 'min:8'],
 
         ]);
-        User::create($formData);
+        $user = User::create($formData);
+        auth()->login($user);
+        return redirect('/')->with('success', "Welcome $user->name");
         // User::create([
         //     'name' => 'kkk',
         //     'username' => 'sdfsdfsd',
         //     'email' => 'sdfasdf@gmail.com',
         //     'password' => 'sdfsdfsdfs'
         // ]);
+    }
+    public function logout()
+    {
+        auth()->logout();
+        return redirect('/')->with('success', 'Good Bye');
     }
 }

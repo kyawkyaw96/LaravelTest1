@@ -22,7 +22,7 @@
 			</div>
 		</div>
 	</div>
-
+	<x-comments />
 	<x-subscribe />
 
 	<x-you-may-like :randomBlog="$randomBlog" />

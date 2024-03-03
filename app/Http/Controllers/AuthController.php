@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
 class AuthController extends Controller
 {
     public function create()
     {
-        return view('register.create');
+        return view('auth.register');
     }
     public function store()
     {
@@ -23,7 +24,7 @@ class AuthController extends Controller
         ]);
         $user = User::create($formData);
         auth()->login($user);
-        return redirect('/')->with('success', "Welcome $user->name");
+        return redirect('/login');
         // User::create([
         //     'name' => 'kkk',
         //     'username' => 'sdfsdfsd',
@@ -31,9 +32,31 @@ class AuthController extends Controller
         //     'password' => 'sdfsdfsdfs'
         // ]);
     }
+
+
+    public function login()
+    {
+        return view('auth.login');
+    }
+    public function post_login()
+    {
+        $formData = request()->validate([
+            'email' => ['required', 'max:255', Rule::exists('users', 'email')],
+            'password' => ['required', 'min:3', 'max:255']
+        ], ['password' => 'Email or password does not match.']);
+
+        if (auth()->attempt($formData)) {
+            return redirect('/')
+                ->withSuccess('You have successfully logged in!');
+        }
+
+        return back()->withErrors([
+            'password' => 'Email or password does not match.',
+        ])->onlyInput('email');
+    }
     public function logout()
     {
         auth()->logout();
-        return redirect('/')->with('success', 'Good Bye');
+        return redirect('/login')->with('success', 'Good Bye');
     }
 }

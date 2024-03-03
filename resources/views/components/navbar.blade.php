@@ -12,6 +12,8 @@
 				</form>
 			@else
 				<a href="/register" class="nav-link">Register</a>
+				<a href="/login" class="nav-link">Login</a>
+
 			@endauth
 
 			<a href="#subscribe" class="nav-link">Subscribe</a>

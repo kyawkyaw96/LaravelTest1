@@ -20,9 +20,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [BlogController::class, 'index']);
 Route::get("/blogs/{blog:slug}", [BlogController::class, 'show'])->where('blog', '[A-z\d\-_]+'); ///whereAlpha,whereAlphaNumeric  p
-Route::get('/register', [AuthController::class, 'create']);
-Route::post('/register', [AuthController::class, 'store']);
-Route::post('/logout', [AuthController::class, 'logout']);
+Route::get('/register', [AuthController::class, 'create'])->middleware('guest');
+Route::post('/register', [AuthController::class, 'store'])->middleware('guest');
+Route::get('/login', [AuthController::class, 'login'])->middleware('guest');
+Route::post('/login', [AuthController::class, 'post_login'])->middleware('guest');
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
 // Route::get("/users/{user:username}", function (User $user) {
 //     return view('blogs', [

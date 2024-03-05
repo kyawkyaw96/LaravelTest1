@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->text('body');
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete(); //references ka colum ko aim and on ka table
-            $table->foreignId('blog_id')->references('id')->on('blog')->cascadeOnDelete(); //blog or user something delete yim comment table ka comment par auto delete// user and blog delete write is same
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete(); //user and blog,id delete yin comment par de;ete
+            $table->foreignId('blog_id')->references('id')->on('blogs')->cascadeOnDelete();
             $table->timestamps();
         });
     }

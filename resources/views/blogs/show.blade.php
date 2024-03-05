@@ -22,7 +22,8 @@
 			</div>
 		</div>
 	</div>
-	<x-comments />
+	{{-- @dd($blog->comments) --}}
+	<x-comments :comments="$blog->comments" />
 	<x-subscribe />
 
 	<x-you-may-like :randomBlog="$randomBlog" />

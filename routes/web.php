@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CommentController;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\User;
@@ -25,6 +26,8 @@ Route::post('/register', [AuthController::class, 'store'])->middleware('guest');
 Route::get('/login', [AuthController::class, 'login'])->middleware('guest');
 Route::post('/login', [AuthController::class, 'post_login'])->middleware('guest');
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
+Route::post('/blogs/{blog:slug}/comment', [CommentController::class, 'store'])->middleware('auth');
+
 
 // Route::get("/users/{user:username}", function (User $user) {
 //     return view('blogs', [

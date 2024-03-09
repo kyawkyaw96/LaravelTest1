@@ -10,7 +10,7 @@
 		integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
 </head>
 
-<body id="home">
+<body id="home" class="min-vh-100">
 	<x-navbar />
 	{{ $slot }}
 	<x-footer />

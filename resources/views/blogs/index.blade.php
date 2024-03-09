@@ -29,7 +29,6 @@
 	<!-- blogs section -->
 	<x-section :blogs="$blogs" />
 	<!-- subscribe new blogs -->
-	<x-subscribe />
 
 	<!-- footer -->
 

@@ -17,6 +17,10 @@
 			@endauth
 
 			<a href="#subscribe" class="nav-link">Subscribe</a>
+			@auth
+				<img width="50" height="50" class="rounded-circle" src="{{ auth()->user()->avatar }}" alt="">
+			@endauth
+
 		</div>
 	</div>
 </nav>

@@ -16,6 +16,9 @@
 				<img src="https://creativecoder.s3.ap-southeast-1.amazonaws.com/blogs/GOLwpsybfhxH0DW8O6tRvpm4jCR6MZvDtGOFgjq0.jpg"
 					class="card-img-top" alt="..." />
 				<h3 class="my-3">{{ $blog->title }}</h3>
+				<h5 class="text-secondary my-3">Author - {{ $blog->user->username }}</h5>
+				<h5 class="text-secondary my-3"><button class="btn btn-sm btn-warning text-white">Subscribe</button></h5>
+
 				<p class="lh-md">
 					{{ $blog->body }}
 				</p>
@@ -23,8 +26,8 @@
 		</div>
 	</div>
 	{{-- @dd($blog->comments) --}}
+	<x-comment-form :blog="$blog" />
 	<x-comments :comments="$blog->comments" />
-	<x-subscribe />
 
 	<x-you-may-like :randomBlog="$randomBlog" />
 

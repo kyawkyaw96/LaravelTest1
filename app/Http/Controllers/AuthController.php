@@ -23,7 +23,7 @@ class AuthController extends Controller
 
         ]);
         $user = User::create($formData);
-        auth()->login($user);
+        // auth()->login($user);
         return redirect('/login');
         // User::create([
         //     'name' => 'kkk',

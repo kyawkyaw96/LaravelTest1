@@ -27,7 +27,7 @@ Route::get('/login', [AuthController::class, 'login'])->middleware('guest');
 Route::post('/login', [AuthController::class, 'post_login'])->middleware('guest');
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
 Route::post('/blogs/{blog:slug}/comment', [CommentController::class, 'store'])->middleware('auth');
-
+Route::post("/blogs/{blog:slug}/subscription", [BlogController::class, 'subscriptionHandler']);
 
 // Route::get("/users/{user:username}", function (User $user) {
 //     return view('blogs', [

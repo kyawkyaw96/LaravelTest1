@@ -6,4 +6,6 @@
 			<x-single-comment :comment="$comment" />
 		@endforeach
 	</div>
+	{{ $comments->onEachSide(1)->links() }}
+
 </section>

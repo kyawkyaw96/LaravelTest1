@@ -59,8 +59,13 @@ class User extends Authenticatable
 
         return $this->attributes['password'] = bcrypt($value);
     }
-    public function subscribers()
+    public function subScribeBlogs()
     {
         return $this->belongsToMany(Blog::class);
+    }
+    public function isSubscribed($blog)
+    {
+        return auth()->user()->subScribeBlogs &&
+            auth()->user()->subScribeBlogs->contains('id', $blog->id);
     }
 }

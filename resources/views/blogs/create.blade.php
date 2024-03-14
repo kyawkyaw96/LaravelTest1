@@ -12,7 +12,7 @@
 	<div class="col-md-5 mx-auto">
 		<h3 class="text-primary my-2 text-center"> Create Blog Form</h3>
 		<div class="card my-3 p-4 shadow-sm">
-			<form method="POST" action="/admin/blogs/store">
+			<form method="POST" action="/admin/blogs/store" enctype="multipart/form-data">
 				@csrf
 				<div class="mb-3">
 					<label for="category_id" class="form-label">Category</label>
@@ -23,10 +23,10 @@
 								{{ $category->name }}
 							</option>
 						@endforeach
-						@error('category_id')
-							<div class="alert alert-danger">{{ $message }}</div>
-						@enderror
 					</select>
+					@error('category_id')
+						<div class="alert alert-danger">{{ $message }}</div>
+					@enderror
 				</div>
 				<div class="mb-3">
 					<label for="title" class="form-label">Title</label>
@@ -49,6 +49,14 @@
 					<input value="{{ old('intro') }}" type="text" required name="intro"
 						class="form-control @error('intro') is-invalid @enderror" id="intro" aria-describedby="introHelp">
 					@error('intro')
+						<div class="alert alert-danger">{{ $message }}</div>
+					@enderror
+				</div>
+				<div class="mb-3">
+					<label for="thumnails" class="form-label">Thumbmails</label>
+					<input value="{{ old('thumbnails') }}" type="file" required name="thumbnails"
+						class="form-control @error('thumbnails') is-invalid @enderror" id="thumbnails" aria-describedby="thumbnailsHelp">
+					@error('thumbnails')
 						<div class="alert alert-danger">{{ $message }}</div>
 					@enderror
 				</div>

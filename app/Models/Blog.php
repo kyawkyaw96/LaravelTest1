@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'body', 'intro', 'slug', 'user_id', 'category_id']; //protected $guarded=[];
+    protected $fillable = ['title', 'body', 'intro', 'slug', 'user_id', 'category_id', 'thumbnail']; //protected $guarded=[];
 
     protected $with = ['category', 'user']; //eager load or lazy loading//web.php mar eager load ma lo top bu
 
